@@ -3,10 +3,10 @@ package databaseaccess
 import java.sql.{Connection, DriverManager, SQLException, Statement}
 
 object JDBC extends App {
-  val driver ="com.mysql.cj.jdbc.Driver"
-  val url = "jdbc:mysql://localhost:3306/warehouseDB"
-  val username = "root"
-  val password = "admin"
+  private val driver ="com.mysql.cj.jdbc.Driver"
+  private val url = "jdbc:mysql://localhost:3306/warehouseDB"
+  private val username = "root"
+  private val password = "admin"
 
   try{
     Class.forName(driver)
@@ -25,11 +25,10 @@ object JDBC extends App {
     connection.close()
   }
   catch {
-    case sqlException: SQLException => {
+    case sqlException: SQLException =>
       println("SQLException: " + sqlException)
       println("SQLState: " + sqlException.getSQLState)
       println("Vendor Error: " + sqlException.getErrorCode)
-    }
     case exception: Exception => exception.printStackTrace()
   }
 }
