@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS warehouseDB;
+DROP TABLE IF EXISTS warehouse;
+
+CREATE DATABASE IF NOT EXISTS warehouseDB;
+USE warehouseDB;
+CREATE TABLE IF NOT EXISTS warehouse (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    INDEX(name)
+) engine=InnoDB;
+
+SELECT * FROM warehouse;
