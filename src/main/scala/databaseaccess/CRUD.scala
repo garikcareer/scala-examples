@@ -2,14 +2,14 @@ package databaseaccess
 
 import java.sql.{Connection, DriverManager, SQLException, Statement}
 
-object JDBC extends App {
-  private val driver ="com.mysql.cj.jdbc.Driver"
+object CRUD extends App {
   private val url = "jdbc:mysql://localhost:3306/warehouseDB"
   private val username = "root"
   private val password = "admin"
 
   try{
-    Class.forName(driver)
+    Class.forName("com.mysql.cj.jdbc.Driver")
+
     val connection:Connection = DriverManager.getConnection(url, username, password)
     println("Connected to " + url + " successfully.\n")
     val statement: Statement = connection.createStatement()
